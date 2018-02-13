@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context	
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+
+	<context:property-placeholder location="classpath:application.properties"/>
+	
+
+	<bean id="driver"
+		class="com.maxshannon.techtest.models.Driver">
+	</bean>
+	
+	<bean id="carrier"
+		class="com.maxshannon.techtest.models.Carrier">
+	</bean>
+	
+	<bean id="location"
+		class="com.maxshannon.techtest.models.Location">
+	</bean>
+	
+	<bean id="datareceiver"
+		class="com.maxshannon.techtest.DataReceiver">
+		
+		<property name = "appUrl" value="${spring.datasource.url}"></property>
+		<property name = "retryCount" value="${api.retry.count}"></property>
+		<property name = "timeoutLength" value="${api.timeout.miliseconds}"></property>
+	</bean>
+	
+	<bean id = "databaseinteractionservice"
+		class = "com.maxshannon.techtest.DatabaseInteractionService">
+		<constructor-arg ref="datareceiver"></constructor-arg>
+		<constructor-arg ref="driver"></constructor-arg>
+		<constructor-arg ref="location"></constructor-arg>
+		<constructor-arg ref="carrier"></constructor-arg>
+
+	</bean>
+	
+		<bean id = "updatechecker"
+		class = "com.maxshannon.techtest.UpdateChecker">
+		<constructor-arg ref="datareceiver"></constructor-arg>
+		<constructor-arg ref="driver"></constructor-arg>
+		<constructor-arg ref="location"></constructor-arg>
+		<constructor-arg ref="carrier"></constructor-arg>
+
+	</bean>
+
+	
+</beans>

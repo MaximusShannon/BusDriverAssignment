@@ -1,0 +1,123 @@
+<? xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm    
+   http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+   version="1.0">
+      
+   <description> XML Mapping file For Driver</description>
+      
+   <entity class="Driver">  
+         
+      <table name="DriverTable"/>
+      
+		    <attributes>  
+		        
+		         <id name="id">	
+		         	       
+		        	 <generated-value strategy="TABLE"/>	
+		         	         
+		         </id>
+		
+		         <basic name="driverId" attribute-type="Interger">	
+		         	         
+		         	<column name="DriverId" length="15"/>	
+		         		            
+		         </basic>		        
+		         
+		         <basic name="version" attribute-type="Interger">		
+		                  
+		         	<column name = "version" length="5"</>	
+		         	         
+		         </basic>
+		         
+		         <basic name="firstName" attribute-type="String">	
+		         	         
+		         	<column name = "fName" length="30"</>
+		         			         
+		         </basic>
+		         
+		         <basic name="middleInitial" attribute-type="Character">	
+		         	         
+		         	<column name = "middle_init" length="30"</>
+		         			         
+		         </basic>
+		         
+		         <basic name="lastName" attribute-type="String">	
+		         	         
+		         	<column name = "sName" length="30"</>
+		         			         
+		         </basic>
+		         
+		         <basic name="oper_class" attribute-type="String">	
+		         	         
+		         	<column name = "OperatingClass" length="30"</>
+		         			         
+		         </basic>
+		         
+		    </attributes>
+   </entity>
+   
+   <entity>
+   	
+   		<table name = "CarrierTable"/>
+   		<attributes>
+   			
+   			<id name="id">	
+		         	       
+		    	<generated-value strategy="TABLE"/>	
+		         	         
+		    </id>		   
+		    
+		    <basic name = "version" attribute-type="Integer">
+		    
+		    	<column name = "Version" length="5"</>
+		    
+		    </basic>
+		    
+		    <basic name = "carrierName" attribute-type="String">
+		    
+		    	<column name = "CarrierName" length="30"</>
+		    
+		    </basic>
+   		
+   		</attributes>  		
+   
+   </entity>
+   
+   <entity>
+   		
+   		<table name = "LocationTable"/>
+   		
+   		<attributes>
+   		
+   		<id name = "id">
+   		
+   			<generated-value strategy="TABLE"/>
+   		
+   		</id>
+   		
+   		<basic name = "locationId" attribute-type ="Integer">
+   		
+   			<column name = "LocationId" length="15"</>
+   		
+   		</basic>
+   		
+   		 <basic name = "locationName" attribute-type ="String">
+   		
+   			<column name = "LocationName" length="30"</>
+   		
+   		</basic>
+   		
+   		<basic name = "version" attribute-type ="Integer">
+   		
+   			<column name = "Version" length="5"</>
+   		
+   		</basic>
+   		
+   		</attributes>
+   
+   </entity>
+   
+</entity-mappings>
